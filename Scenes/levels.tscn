@@ -1,0 +1,101 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsrtuoy7676ap"]
+
+[ext_resource type="Theme" uid="uid://cyy5fji3smg36" path="res://General Assets/Themes/UI_Theme.tres" id="1_p7b1q"]
+[ext_resource type="Script" path="res://Scripts/Button.gd" id="2_eygot"]
+
+[node name="Levels" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Levels" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_p7b1q")
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_bottom = 160
+
+[node name="Label" type="Label" parent="VBoxContainer/Levels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "LEVELS"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Level 1" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 40
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/Level 1"]
+layout_mode = 2
+theme = ExtResource("1_p7b1q")
+theme_override_font_sizes/font_size = 32
+text = "APPETIZER"
+script = ExtResource("2_eygot")
+
+[node name="Level 2" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 40
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/Level 2"]
+layout_mode = 2
+theme = ExtResource("1_p7b1q")
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "MAIN COURSE"
+script = ExtResource("2_eygot")
+
+[node name="Level 3" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 40
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/Level 3"]
+layout_mode = 2
+theme = ExtResource("1_p7b1q")
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "DESSERT"
+script = ExtResource("2_eygot")
+
+[node name="Back" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_top = 140
+
+[node name="Button" type="Button" parent="VBoxContainer/Back"]
+layout_mode = 2
+theme = ExtResource("1_p7b1q")
+theme_override_font_sizes/font_size = 32
+text = "BACK"
+script = ExtResource("2_eygot")
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Level 1/Button" to="VBoxContainer/HBoxContainer/Level 1/Button" method="_on_lvl1_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Level 2/Button" to="VBoxContainer/HBoxContainer/Level 1/Button" method="_on_lvl2_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Level 3/Button" to="VBoxContainer/HBoxContainer/Level 1/Button" method="_on_lvl3_pressed"]
+[connection signal="pressed" from="VBoxContainer/Back/Button" to="VBoxContainer/HBoxContainer/Level 1/Button" method="_on_back_pressed"]

@@ -10,9 +10,10 @@ config_version=5
 
 [application]
 
-config/name="G4fps"
-run/main_scene="res://levels/node_3d.tscn"
+config/name="Still Hungry"
+run/main_scene="res://Scenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+config/icon="res://burger_icon.png"
 
 [autoload]
 

@@ -1,0 +1,189 @@
+[gd_scene load_steps=10 format=3 uid="uid://dvlvj1umo0er2"]
+
+[ext_resource type="Theme" uid="uid://cyy5fji3smg36" path="res://General Assets/Themes/UI_Theme.tres" id="1_7smw5"]
+[ext_resource type="Texture2D" uid="uid://gpu3363jcto0" path="res://General Assets/Images/bitemark.png" id="2_m3k1q"]
+[ext_resource type="FontFile" uid="uid://dg6qntbedmxj6" path="res://General Assets/Fonts/TitanOne-Regular.ttf" id="3_bq16c"]
+[ext_resource type="Script" path="res://Scripts/Button.gd" id="3_o7hgg"]
+[ext_resource type="Texture2D" uid="uid://bn8olrbydwcva" path="res://General Assets/Images/burger.png" id="4_incbb"]
+[ext_resource type="Script" path="res://Scripts/Burger.gd" id="4_lqxri"]
+[ext_resource type="Texture2D" uid="uid://cpdof368qe8d8" path="res://General Assets/Images/burger_bitten.png" id="6_8usft"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p67qy"]
+bg_color = Color(0.745098, 0.843137, 0.329412, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+shadow_color = Color(0.478431, 0.678431, 0.239216, 1)
+shadow_size = 1
+shadow_offset = Vector2(10, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s0ais"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_incbb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8usft")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -464.5
+offset_right = 464.5
+offset_bottom = 208.0
+grow_horizontal = 2
+
+[node name="Title" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 60
+
+[node name="Label" type="Label" parent="VBoxContainer/Title"]
+layout_mode = 2
+theme = ExtResource("1_7smw5")
+theme_override_font_sizes/font_size = 128
+text = "STILL HUNGRY?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Title/Label"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -484.0
+offset_top = -66.0
+offset_right = 16.0
+offset_bottom = 434.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_m3k1q")
+
+[node name="Levels" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/margin_top = 40
+
+[node name="Button" type="Button" parent="VBoxContainer/Levels"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_7smw5")
+theme_override_font_sizes/font_size = 48
+text = "Eat those Levels!"
+script = ExtResource("3_o7hgg")
+
+[node name="Settings" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/margin_top = 40
+
+[node name="Button" type="Button" parent="VBoxContainer/Settings"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_7smw5")
+theme_override_font_sizes/font_size = 48
+text = "Settings"
+script = ExtResource("3_o7hgg")
+
+[node name="Quit" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/margin_top = 40
+
+[node name="Button" type="Button" parent="VBoxContainer/Quit"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_7smw5")
+theme_override_font_sizes/font_size = 48
+text = "Im Stuffed*"
+script = ExtResource("3_o7hgg")
+
+[node name="Chef\'s Credits" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_top = 50
+
+[node name="Button" type="Button" parent="VBoxContainer/Chef\'s Credits"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_7smw5")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_p67qy")
+text = "Chef's Credits"
+script = ExtResource("3_o7hgg")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -117.0
+offset_top = -43.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.745098, 0.843137, 0.329412, 1)
+theme_override_fonts/font = ExtResource("3_bq16c")
+text = "Quits game*"
+
+[node name="Burger" type="Area2D" parent="."]
+script = ExtResource("4_lqxri")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Burger"]
+position = Vector2(808, 420)
+scale = Vector2(0.984, 0.924835)
+polygon = PackedVector2Array(-102.642, -121.103, -49.7968, -148.134, 46.748, -140.566, 151.423, -90.827, 180.894, -36.7633, 132.114, 135.159, 23.374, 151.378, -160.569, 80.0142, -180.894, 8.65018)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Burger"]
+position = Vector2(808, 420)
+scale = Vector2(0.984, 0.924835)
+sprite_frames = SubResource("SpriteFrames_s0ais")
+frame = 1
+frame_progress = 0.873376
+
+[connection signal="pressed" from="VBoxContainer/Levels/Button" to="VBoxContainer/Levels/Button" method="_on_levels_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings/Button" to="VBoxContainer/Levels/Button" method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit/Button" to="VBoxContainer/Levels/Button" method="_on_quit_pressed"]
+[connection signal="pressed" from="VBoxContainer/Chef's Credits/Button" to="VBoxContainer/Levels/Button" method="_on_credits_pressed"]
+[connection signal="mouse_entered" from="Burger" to="Burger" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Burger" to="Burger" method="_on_mouse_exited"]
