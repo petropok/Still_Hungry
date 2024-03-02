@@ -1,0 +1,86 @@
+[gd_scene load_steps=4 format=3 uid="uid://2806741ryp3"]
+
+[ext_resource type="Theme" uid="uid://cyy5fji3smg36" path="res://General Assets/Themes/UI_Theme.tres" id="1_avpq7"]
+[ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_n0agg"]
+[ext_resource type="Script" path="res://Scripts/Button.gd" id="3_3xcdg"]
+
+[node name="Control" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n0agg")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -155.0
+offset_top = -258.0
+offset_right = 155.0
+offset_bottom = 258.0
+grow_horizontal = 2
+grow_vertical = 2
+ratio = 0.6
+
+[node name="ColorRect" type="Panel" parent="AspectRatioContainer"]
+layout_mode = 2
+theme = ExtResource("1_avpq7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer"]
+layout_mode = 2
+
+[node name="Paused" type="MarginContainer" parent="AspectRatioContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="Label" type="Label" parent="AspectRatioContainer/VBoxContainer/Paused"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_avpq7")
+theme_override_font_sizes/font_size = 48
+text = "PAUSED"
+
+[node name="Continue" type="MarginContainer" parent="AspectRatioContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_top = 120
+
+[node name="Button" type="Button" parent="AspectRatioContainer/VBoxContainer/Continue"]
+layout_mode = 2
+theme = ExtResource("1_avpq7")
+text = "CONTINUE"
+
+[node name="Settings" type="MarginContainer" parent="AspectRatioContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_top = 40
+
+[node name="Button" type="Button" parent="AspectRatioContainer/VBoxContainer/Settings"]
+layout_mode = 2
+theme = ExtResource("1_avpq7")
+text = "GO TO SETTINGS"
+script = ExtResource("3_3xcdg")
+
+[node name="Back" type="MarginContainer" parent="AspectRatioContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/margin_top = 40
+
+[node name="Button" type="Button" parent="AspectRatioContainer/VBoxContainer/Back"]
+layout_mode = 2
+size_flags_vertical = 8
+theme = ExtResource("1_avpq7")
+text = "BACK TO MENU"
+script = ExtResource("3_3xcdg")
+
+[connection signal="pressed" from="AspectRatioContainer/VBoxContainer/Continue/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/VBoxContainer/Settings/Button" to="AspectRatioContainer/VBoxContainer/Settings/Button" method="_on_igsettings_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/VBoxContainer/Back/Button" to="AspectRatioContainer/VBoxContainer/Back/Button" method="_on_back_pressed"]
